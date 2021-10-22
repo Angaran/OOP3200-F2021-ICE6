@@ -1,5 +1,6 @@
 #include <iomanip>
 #include <iostream>
+#include <map>
 
 #include <vector>
 
@@ -51,7 +52,15 @@ static void CompareGameObjects(GameObject* object1, GameObject* object2)
 
 int main()
 {
-	std::vector<GameObject*> gameObjects;
+	//map is made upn of key-value pairs - in this case the key is a string
+	//and the value is a GameObject
+	std::map<std::string, GameObject> gameObjects;
+
+
+
+
+
+	/*std::vector<GameObject*> gameObjects;
 
 	int num_of_GO;
 	std::cout << "How Many Game Objects do you need?: ";
@@ -71,6 +80,6 @@ int main()
 	std::cout << "\n--------------------------------------------------------------" << std::endl;
 	
 	CompareGameObjects(gameObjects[index1], gameObjects[index2]);
-	CompareGameObjects(gameObjects[index1], gameObjects[index2]);
+	CompareGameObjects(gameObjects[index1], gameObjects[index2]);*/
 }
 

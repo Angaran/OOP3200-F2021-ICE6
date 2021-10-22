@@ -1,20 +1,45 @@
 #include "GameObject.h"
 
-GameObject::GameObject(): m_id(0), m_position(Vector2D<float>())
+#include <utility>
+
+GameObject::GameObject(): m_id(0),m_name("not set"), m_position(Vector2D<float>())
 {
 }
 
 GameObject::GameObject(const int id, const float x, const float y)
 {
 	SetID(id);
+	SetName("not set");
 	SetPosition(x, y);
 }
 
 GameObject::GameObject(const int id, const Vector2D<float>& position)
 {
 	SetID(id);
+	SetName("not set");
 	SetPosition(position);
 }
+
+GameObject::GameObject(std::string name, const int id, const float x, const float y)
+	:m_id(id), m_name(std::move(name)), m_position(Vector2D<float>(x,y))
+{
+}
+
+GameObject::GameObject(std::string name, const int id, const Vector2D<float>& position)
+	:m_id(id), m_name(std::move(name)), m_position(position)
+{
+}
+
+std::string GameObject::GetName() const
+{
+	return m_name;
+}
+
+void GameObject::SetName(const std::string& name)
+{
+	m_name = name;
+}
+
 
 GameObject::~GameObject()
 = default;
